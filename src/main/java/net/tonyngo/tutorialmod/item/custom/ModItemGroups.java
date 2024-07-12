@@ -9,11 +9,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.tonyngo.tutorialmod.item.ModItems;
 
 public class ModItemGroups {
-    private static Object TutorialMod;
     public static final ItemGroup RUBY_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(TutorialMod.MOD_ID, "ruby"),
+            Identifier.of(Tutorialmod.MOD_ID, "ruby"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.ruby"))
                     .icon(() -> new ItemStack(ModItems.RUBY)).entries((displayContext, entries) -> {
 
@@ -54,12 +54,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RUBY_PRESSURE_PLATE);
                         entries.add(ModBlocks.RUBY_DOOR);
                         entries.add(ModBlocks.RUBY_TRAPDOOR);
-
-
                     }).build());
 
-
     public static void registerItemGroups() {
-        TutorialMod.LOGGER.info("Registering Item Groups for " + TutorialMod.MOD_ID);
+        Tutorialmod.LOGGER.info("Registering Item Groups for " + Tutorialmod.MOD_ID);
     }
 }
